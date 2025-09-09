@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chilaco – Salsas en bolsa martajadas</title>
+  <meta name="description" content="Salsas Chilaco: roja de chile de árbol, verde de tomate y serrano, y jitomate con serrano. Hechas a mano, listas para llevar.">
+  <meta property="og:title" content="Chilaco – Salsas en bolsa martajadas" />
+  <meta property="og:description" content="Salsas rojas y verdes, auténticas, hechas a mano en Jalisco." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        <img src="assets/logo.png" alt="Chilaco" class="logo" />
+        <span>Chilaco</span>
+      </a>
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#historia">Historia</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero container">
+      <div class="hero-text">
+        <h1>Salsa auténtica, lista para llevar</h1>
+        <p>Martajada con cariño. Tres sabores que saben a casa: roja (chile de árbol), verde (tomate y serrano) y jitomate con serrano.</p>
+        <div class="cta">
+          <a class="btn" href="#productos">Ver productos</a>
+          <a class="btn-outline" href="#contacto">Quiero distribuir</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos" class="container products">
+      <h2>Nuestras salsas</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Roja – Chile de árbol</h3>
+          <p>Intensa, aromática y con el picor clásico del chile de árbol. Perfecta para tacos, quesadillas y antojitos.</p>
+          <ul>
+            <li>Presentación: bolsa</li>
+            <li>Picor: alto</li>
+            <li>Rinde: 6–8 porciones</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Verde – Tomate y serrano</h3>
+          <p>Fresca y versátil. El equilibrio exacto entre acidez y picor medio para todo tipo de comidas.</p>
+          <ul>
+            <li>Presentación: bolsa</li>
+            <li>Picor: medio</li>
+            <li>Rinde: 6–8 porciones</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Jitomate con serrano</h3>
+          <p>Sabor casero con notas dulces del jitomate y el toque justo del serrano. Ideal para chilaquiles.</p>
+          <ul>
+            <li>Presentación: bolsa</li>
+            <li>Picor: medio-bajo</li>
+            <li>Rinde: 6–8 porciones</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="historia" class="container story">
+      <h2>Nuestra historia</h2>
+      <p>Chilaco nace inspirado en la tradición familiar y el cariño por las salsas bien hechas. Rescatamos técnicas caseras para mantener el sabor auténtico en un formato práctico.</p>
+    </section>
+
+    <section id="contacto" class="container contact">
+      <h2>Contacto</h2>
+      <p>¿Quieres vender Chilaco en tu tienda o hacer un pedido grande?</p>
+      <form id="contactForm" class="card form" action="https://formspree.io/f/xbjvqqrq" method="POST">
+        <div class="row">
+          <label>Nombre
+            <input type="text" name="nombre" required />
+          </label>
+          <label>Correo
+            <input type="email" name="email" required />
+          </label>
+        </div>
+        <label>Mensaje
+          <textarea name="mensaje" rows="4" required></textarea>
+        </label>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+      <small class="hint">Puedes cambiar el endpoint del formulario por el de tu servicio favorito (Formspree, Getform, etc.).</small>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Chilaco — Hecho en Jalisco.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
