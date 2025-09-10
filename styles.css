@@ -30,13 +30,13 @@ body{
 
 /* LOGO */
 .logo{
-  height:72px;             /* ↑ antes 34px */
+  height:90px;             /* ↑ antes 72px */
   width:auto;
   display:block;
-  background:#fff;         /* marco blanco intencional para “integrar” el PNG */
+  background:#fff;         
   padding:6px;
   border-radius:12px;
-  border:1px solid #e6e1d8;/* borde suave que combina con el crema */
+  border:1px solid #e6e1d8;
   box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
 
@@ -94,11 +94,11 @@ input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px 
 .site-footer{border-top:1px solid #ddd;margin-top:40px;background:var(--bg)}
 .site-footer p{color:#666;text-align:center}
 
-/* Logo un poco más grande en footer */
-.site-footer .logo{height:80px}
+/* Logo más grande en footer */
+.site-footer .logo{height:110px}
 
 /* Responsivo */
 @media (max-width:700px){
   .form .row{grid-template-columns:1fr}
-  .logo{height:56px}       /* tamaño más razonable en móvil */
+  .logo{height:70px}       /* más razonable en móvil */
 }
