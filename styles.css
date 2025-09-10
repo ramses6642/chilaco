@@ -102,3 +102,30 @@ input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px 
   .form .row{grid-template-columns:1fr}
   .logo{height:70px}       /* más razonable en móvil */
 }
+/* Hover con color/“textura” por salsa */
+.card{
+  position: relative;
+  overflow: hidden;
+  transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+/* ROJA */
+.card--roja:hover{
+  background: linear-gradient(180deg, #FBE9E7 0%, #FFFFFF 80%);
+  border-color: #f1c4bd;
+  box-shadow: 0 6px 16px rgba(241, 80, 37, 0.22);
+}
+
+/* VERDE */
+.card--verde:hover{
+  background: linear-gradient(180deg, #EEF7E9 0%, #FFFFFF 80%);
+  border-color: #cde5c8;
+  box-shadow: 0 6px 16px rgba(63, 161, 76, 0.22);
+}
+
+/* JITOMATE */
+.card--jitomate:hover{
+  background: linear-gradient(180deg, #FFF0E6 0%, #FFFFFF 80%);
+  border-color: #f3d1c3;
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.22);
+}
