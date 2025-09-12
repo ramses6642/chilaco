@@ -151,3 +151,22 @@ input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px 
 .contact-card a:hover {
   color: var(--muted);
 }
+
+/* ============================= */
+/* Botón de WhatsApp SIEMPRE visible (solo en la sección Contacto) */
+/* ============================= */
+.contact-card .btn{
+  background:#25D366;          /* Verde oficial WhatsApp */
+  color:#fff !important;        /* Texto siempre blanco */
+  border:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.contact-card .btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+}
+.contact-card .btn:focus{
+  outline:none;
+  box-shadow:0 0 0 6px rgba(37,211,102,0.25); /* anillo accesible */
+}
