@@ -79,27 +79,13 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 /* Historia */
 .story p{color:var(--muted);max-width:800px;margin:0 auto;text-align:center}
 
-/* Formulario de contacto (se mantuvo por si se reactiva en el futuro) */
-.form .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-.form label{display:grid; gap:6px; color:var(--muted)}
-input,textarea{
-  width:100%; padding:12px 14px; border-radius:12px; background:#fff; color:var(--text);
-  border:1px solid #ccc;
-}
-input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px var(--ring)}
-
-.hint{color:#888; display:block; margin-top:8px;text-align:center}
-
 /* Footer */
 .site-footer{border-top:1px solid #ddd;margin-top:40px;background:var(--bg)}
 .site-footer p{color:#666;text-align:center}
-
-/* Logo más grande en footer */
 .site-footer .logo{height:110px}
 
 /* Responsivo */
 @media (max-width:700px){
-  .form .row{grid-template-columns:1fr}
   .logo{height:70px}
 }
 
@@ -109,19 +95,16 @@ input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px 
   overflow: hidden;
   transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
-/* ROJA */
 .card--roja:hover{
   background: linear-gradient(180deg, #FBE9E7 0%, #FFFFFF 80%);
   border-color: #f1c4bd;
   box-shadow: 0 6px 16px rgba(241, 80, 37, 0.22);
 }
-/* VERDE */
 .card--verde:hover{
   background: linear-gradient(180deg, #EEF7E9 0%, #FFFFFF 80%);
   border-color: #cde5c8;
   box-shadow: 0 6px 16px rgba(63, 161, 76, 0.22);
 }
-/* JITOMATE */
 .card--jitomate:hover{
   background: linear-gradient(180deg, #FFF0E6 0%, #FFFFFF 80%);
   border-color: #f3d1c3;
@@ -152,7 +135,7 @@ input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px 
 
 /* Botón WhatsApp de la tarjeta de contacto */
 .contact-card .btn{
-  background:#25D366;          /* Verde WhatsApp */
+  background:#25D366; /* Verde WhatsApp */
   color:#fff !important;
   border:none;
   box-shadow:0 4px 12px rgba(0,0,0,0.15);
@@ -167,24 +150,24 @@ input:focus,textarea:focus{outline:none;border-color:#555; box-shadow:0 0 0 6px 
   box-shadow:0 0 0 6px rgba(37,211,102,0.25);
 }
 
-/* Botón flotante de WhatsApp (círculo + ícono) */
+/* Botón flotante de WhatsApp */
 .whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:99;
-  background:#25D366;          /* círculo verde */
-  border-radius:50%;
-  padding:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.2);
-  transition:transform .2s ease, box-shadow .2s ease;
+  position: fixed;      /* fijo al viewport */
+  bottom: 20px;         /* 20px del fondo */
+  right: 20px;          /* 20px de la derecha */
+  z-index: 9999;        /* siempre por encima */
+  background: #25D366;  /* círculo verde */
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 .whatsapp-float img{
-  width:42px;
-  height:42px;
-  display:block;
+  width: 42px;
+  height: 42px;
+  display: block;
 }
 .whatsapp-float:hover{
-  transform:scale(1.1);
-  box-shadow:0 6px 16px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
