@@ -122,10 +122,10 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   pointer-events: none;
 }
 
-/* Rutas de imagen por tipo de salsa */
-.card--roja   { --card-image: url('assets/salsas/salsaroja.png'); }
-.card--verde  { --card-image: url('assets/salsas/salsaverde.png'); }
-.card--jitomate{ --card-image: url('assets/salsas/salsajitomate.png'); }
+/* Rutas de imagen por tipo de salsa (CORREGIDAS: están directo en /assets/) */
+.card--roja    { --card-image: url('assets/salsaroja.png'); }
+.card--verde   { --card-image: url('assets/salsaverde.png'); }
+.card--jitomate{ --card-image: url('assets/salsajitomate.png'); }
 
 /* (Opcional) una ligera “subida” y sombra al pasar */
 .salsa-card:hover{
