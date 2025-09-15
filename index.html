@@ -72,36 +72,42 @@
       <h2>Nuestras salsas</h2>
       <div class="grid">
         <!-- ROJA -->
-        <article class="card card--roja">
-          <h3>Roja – Chile de árbol</h3>
-          <p>Intensa, aromática y con el picor clásico del chile de árbol. Perfecta para tacos, quesadillas y antojitos.</p>
-          <ul>
-            <li>Presentación: bolsa</li>
-            <li>Picor: alto</li>
-            <li>Rinde: 6–8 porciones</li>
-          </ul>
+        <article class="card salsa-card card--roja" tabindex="0" aria-label="Salsa roja, imagen al pasar el cursor">
+          <div class="salsa-card__body">
+            <h3>Roja – Chile de árbol</h3>
+            <p>Intensa, aromática y con el picor clásico del chile de árbol. Perfecta para tacos, quesadillas y antojitos.</p>
+            <ul>
+              <li>Presentación: bolsa</li>
+              <li>Picor: alto</li>
+              <li>Rinde: 6–8 porciones</li>
+            </ul>
+          </div>
         </article>
 
         <!-- VERDE -->
-        <article class="card card--verde">
-          <h3>Verde – Tomate y serrano</h3>
-          <p>Fresca y versátil. El equilibrio exacto entre acidez y picor medio para todo tipo de comidas.</p>
-          <ul>
-            <li>Presentación: bolsa</li>
-            <li>Picor: medio</li>
-            <li>Rinde: 6–8 porciones</li>
-          </ul>
+        <article class="card salsa-card card--verde" tabindex="0" aria-label="Salsa verde, imagen al pasar el cursor">
+          <div class="salsa-card__body">
+            <h3>Verde – Tomate y serrano</h3>
+            <p>Fresca y versátil. El equilibrio exacto entre acidez y picor medio para todo tipo de comidas.</p>
+            <ul>
+              <li>Presentación: bolsa</li>
+              <li>Picor: medio</li>
+              <li>Rinde: 6–8 porciones</li>
+            </ul>
+          </div>
         </article>
 
         <!-- JITOMATE -->
-        <article class="card card--jitomate">
-          <h3>Jitomate con serrano</h3>
-          <p>Sabor casero con notas dulces del jitomate y el toque justo del serrano. Ideal para chilaquiles.</p>
-          <ul>
-            <li>Presentación: bolsa</li>
-            <li>Picor: medio-bajo</li>
-            <li>Rinde: 6–8 porciones</li>
-          </ul>
+        <article class="card salsa-card card--jitomate" tabindex="0" aria-label="Salsa de jitomate con serrano, imagen al pasar el cursor">
+          <div class="salsa-card__body">
+            <h3>Jitomate con serrano</h3>
+            <p>Sabor casero con notas dulces del jitomate y el toque justo del serrano. Ideal para chilaquiles.</p>
+            <ul>
+              <li>Presentación: bolsa</li>
+              <li>Picor: medio-bajo</li>
+              <li>Rinde: 6–8 porciones</li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
@@ -139,6 +145,18 @@
     <img src="assets/whatsapp.svg" width="42" height="42" alt="WhatsApp">
   </a>
 
+  <!-- Tu script existente -->
   <script src="script.js"></script>
+
+  <!-- JS opcional para móviles: tocar para previsualizar -->
+  <script>
+    document.addEventListener('touchstart', function (e) {
+      const card = e.target.closest('.salsa-card');
+      if (card) card.classList.toggle('is-preview');
+    }, { passive: true });
+
+    // año en footer
+    (function(){ const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear(); })();
+  </script>
 </body>
 </html>
