@@ -1,10 +1,10 @@
 :root{
   --bg: #f5f0e6; /* crema */
   --card: #ffffff; /* tarjetas blancas */
-  --text: #1a1a1a; /* texto principal en negro suave */
-  --muted: #444; /* gris oscuro para textos secundarios */
+  --text: #1a1a1a; /* texto principal */
+  --muted: #444;   /* texto secundario */
   --brand: #1a1a1a; /* acento */
-  --ring: rgba(0,0,0,0.2); /* efecto al enfocar */
+  --ring: rgba(0,0,0,0.2); /* foco */
 }
 
 *{box-sizing:border-box}
@@ -68,12 +68,72 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   display:grid; gap:16px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
+/* Tarjeta base */
 .card{
   background:var(--card);
   border:1px solid #ddd;
   border-radius:16px; padding:18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* -------- Efecto de IMAGEN al hover -------- */
+.salsa-card{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;          /* para que ::after respete el borde */
+  min-height: 260px;           /* da altura para apreciar la foto */
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.salsa-card:focus-within { outline: none; box-shadow: 0 0 0 6px var(--ring); }
+
+/* Contenido de texto que se atenúa cuando aparece la imagen */
+.salsa-card__body{
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+/* Capa con la imagen (invisible por defecto) */
+.salsa-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--card-image);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity .35s ease, transform .4s ease;
+  z-index: 1;
+}
+
+/* Hover/Focus/Tap -> muestra la imagen y oculta el texto */
+.salsa-card:hover::after,
+.salsa-card:focus-within::after,
+.salsa-card.is-preview::after{
+  opacity: 1;
+  transform: scale(1);
+}
+.salsa-card:hover .salsa-card__body,
+.salsa-card:focus-within .salsa-card__body,
+.salsa-card.is-preview .salsa-card__body{
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+/* Rutas de imagen por tipo de salsa */
+.card--roja   { --card-image: url('assets/salsas/salsaroja.png'); }
+.card--verde  { --card-image: url('assets/salsas/salsaverde.png'); }
+.card--jitomate{ --card-image: url('assets/salsas/salsajitomate.png'); }
+
+/* (Opcional) una ligera “subida” y sombra al pasar */
+.salsa-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+
+/* Lista dentro de tarjetas */
 .card ul{margin:0 0 0 18px; color:var(--muted)}
 
 /* Historia */
@@ -87,28 +147,6 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 /* Responsivo */
 @media (max-width:700px){
   .logo{height:70px}
-}
-
-/* Hover con color por salsa */
-.card{
-  position: relative;
-  overflow: hidden;
-  transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
-}
-.card--roja:hover{
-  background: linear-gradient(180deg, #FBE9E7 0%, #FFFFFF 80%);
-  border-color: #f1c4bd;
-  box-shadow: 0 6px 16px rgba(241, 80, 37, 0.22);
-}
-.card--verde:hover{
-  background: linear-gradient(180deg, #EEF7E9 0%, #FFFFFF 80%);
-  border-color: #cde5c8;
-  box-shadow: 0 6px 16px rgba(63, 161, 76, 0.22);
-}
-.card--jitomate:hover{
-  background: linear-gradient(180deg, #FFF0E6 0%, #FFFFFF 80%);
-  border-color: #f3d1c3;
-  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.22);
 }
 
 /* Contacto */
@@ -133,7 +171,7 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   color: var(--muted);
 }
 
-/* Botón WhatsApp de la tarjeta de contacto */
+/* Botón WhatsApp en la tarjeta de contacto */
 .contact-card .btn{
   background:#25D366; /* Verde WhatsApp */
   color:#fff !important;
@@ -152,22 +190,24 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 
 /* Botón flotante de WhatsApp */
 .whatsapp-float{
-  position: fixed;      /* fijo al viewport */
-  bottom: 20px;         /* 20px del fondo */
-  right: 20px;          /* 20px de la derecha */
-  z-index: 9999;        /* siempre por encima */
-  background: #25D366;  /* círculo verde */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: #25D366;
   border-radius: 50%;
   padding: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.whatsapp-float img{
-  width: 42px;
-  height: 42px;
-  display: block;
-}
+.whatsapp-float img{ width:42px; height:42px; display:block; }
 .whatsapp-float:hover{
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Accesibilidad: reducir movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .salsa-card__body, .salsa-card::after,
+  .salsa-card { transition: none; }
 }
