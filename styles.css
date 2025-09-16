@@ -81,20 +81,19 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 .salsa-card{
   position: relative;
   overflow: hidden;
-  isolation: isolate;          /* para que ::after respete el borde */
+  isolation: isolate;          /* para que ::after/::before respeten el borde */
   min-height: 260px;           /* da altura para apreciar la foto */
   cursor: pointer;
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-.salsa-card:focus-within { outline: none; box-shadow: 0 0 0 6px var(--ring); }
 
-/* Texto siempre visible por encima de la foto */
+/* Estado normal: texto oscuro y sin sombra para máxima legibilidad */
 .salsa-card__body{
   position: relative;
-  z-index: 2; /* arriba del ::after */
-  color: #fff; /* letras blancas para contraste */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* mejora legibilidad */
-  transition: opacity .3s ease, transform .3s ease;
+  z-index: 2;                  /* arriba del ::after y ::before */
+  color: var(--text);          /* <- cambio clave: oscuro por defecto */
+  text-shadow: none;           /* sin sombra en estado normal */
+  transition: color .25s ease, text-shadow .25s ease, opacity .3s ease, transform .3s ease;
 }
 
 /* Capa con la imagen (invisible por defecto) */
@@ -108,27 +107,49 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   opacity: 0;
   transform: scale(1.04);
   transition: opacity .35s ease, transform .4s ease;
-  z-index: 1;
+  z-index: 0;
 }
 
-/* Hover/Focus/Tap -> muestra la imagen PERO no oculta el texto */
+/* Capa de oscurecimiento para contraste del texto sobre la foto */
+.salsa-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.45);  /* oscurece la foto en hover */
+  opacity:0;                    /* invisible en estado normal */
+  transition: opacity .35s ease;
+  z-index:1;                    /* entre la foto y el texto */
+}
+
+/* Hover/Focus/Tap -> muestra la imagen y el overlay, y pone el texto en blanco */
 .salsa-card:hover::after,
 .salsa-card:focus-within::after,
 .salsa-card.is-preview::after{
   opacity: 1;
   transform: scale(1);
 }
-
-/* Rutas de imagen por tipo de salsa */
-.card--roja    { --card-image: url('assets/salsaroja.png'); }
-.card--verde   { --card-image: url('assets/salsaverde.png'); }
-.card--jitomate{ --card-image: url('assets/salsajitomate.png'); }
+.salsa-card:hover::before,
+.salsa-card:focus-within::before,
+.salsa-card.is-preview::before{
+  opacity: 1;
+}
+.salsa-card:hover .salsa-card__body,
+.salsa-card:focus-within .salsa-card__body,
+.salsa-card.is-preview .salsa-card__body{
+  color:#fff;                             /* texto blanco solo en interacción */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* mejora legibilidad */
+}
 
 /* (Opcional) una ligera “subida” y sombra al pasar */
 .salsa-card:hover{
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0,0,0,.12);
 }
+
+/* Rutas de imagen por tipo de salsa */
+.card--roja    { --card-image: url('assets/salsaroja.png'); }
+.card--verde   { --card-image: url('assets/salsaverde.png'); }
+.card--jitomate{ --card-image: url('assets/salsajitomate.png'); }
 
 /* Lista dentro de tarjetas */
 .card ul{margin:0 0 0 18px; color:inherit} /* usa mismo color para que sea legible */
@@ -205,6 +226,5 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 
 /* Accesibilidad: reducir movimiento si el usuario lo pide */
 @media (prefers-reduced-motion: reduce) {
-  .salsa-card__body, .salsa-card::after,
-  .salsa-card { transition: none; }
+  .salsa-card__body, .salsa-card::after, .salsa-card::before, .salsa-card { transition: none; }
 }
