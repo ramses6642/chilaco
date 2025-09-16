@@ -88,8 +88,12 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 }
 .salsa-card:focus-within { outline: none; box-shadow: 0 0 0 6px var(--ring); }
 
-/* Contenido de texto que se atenúa cuando aparece la imagen */
+/* Texto siempre visible por encima de la foto */
 .salsa-card__body{
+  position: relative;
+  z-index: 2; /* arriba del ::after */
+  color: #fff; /* letras blancas para contraste */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* mejora legibilidad */
   transition: opacity .3s ease, transform .3s ease;
 }
 
@@ -107,22 +111,15 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   z-index: 1;
 }
 
-/* Hover/Focus/Tap -> muestra la imagen y oculta el texto */
+/* Hover/Focus/Tap -> muestra la imagen PERO no oculta el texto */
 .salsa-card:hover::after,
 .salsa-card:focus-within::after,
 .salsa-card.is-preview::after{
   opacity: 1;
   transform: scale(1);
 }
-.salsa-card:hover .salsa-card__body,
-.salsa-card:focus-within .salsa-card__body,
-.salsa-card.is-preview .salsa-card__body{
-  opacity: 0;
-  transform: translateY(6px);
-  pointer-events: none;
-}
 
-/* Rutas de imagen por tipo de salsa (CORREGIDAS: están directo en /assets/) */
+/* Rutas de imagen por tipo de salsa */
 .card--roja    { --card-image: url('assets/salsaroja.png'); }
 .card--verde   { --card-image: url('assets/salsaverde.png'); }
 .card--jitomate{ --card-image: url('assets/salsajitomate.png'); }
@@ -134,7 +131,7 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 }
 
 /* Lista dentro de tarjetas */
-.card ul{margin:0 0 0 18px; color:var(--muted)}
+.card ul{margin:0 0 0 18px; color:inherit} /* usa mismo color para que sea legible */
 
 /* Historia */
 .story p{color:var(--muted);max-width:800px;margin:0 auto;text-align:center}
