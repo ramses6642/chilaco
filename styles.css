@@ -228,3 +228,68 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 @media (prefers-reduced-motion: reduce) {
   .salsa-card__body, .salsa-card::after, .salsa-card::before, .salsa-card { transition: none; }
 }
+.distribuye {
+  padding: 80px 20px;
+  background: #f4f1e8;
+  text-align: center;
+}
+
+.distribuye h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #1f3c2e;
+}
+
+.distribuye .subtitle {
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.distribuye-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.card-distribuye {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card-distribuye:hover {
+  transform: translateY(-5px);
+}
+
+.card-distribuye h3 {
+  margin-bottom: 15px;
+  color: #1f3c2e;
+}
+
+.card-distribuye ul {
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.card-distribuye li {
+  margin-bottom: 10px;
+}
+
+.btn-distribuye {
+  display: inline-block;
+  background: #1f3c2e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-distribuye:hover {
+  background: #2e5c45;
+}
