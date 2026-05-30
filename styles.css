@@ -28,7 +28,7 @@ body{
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);font-weight:800;letter-spacing:.5px}
 
-/* LOGO */
+/* LOGO MULTIMARCA EN HEADER */
 .logo{
   height:90px;
   width:auto;
@@ -63,6 +63,73 @@ body{
 /* Títulos */
 h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 
+/* --- 🎬 ESTILOS DEL CARRUSEL DE VIDEOS ANTOJABLES --- */
+.video-carousel-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.carousel-wrapper {
+  position: relative;
+  max-width: 850px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+}
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+.carousel-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  backdrop-filter: blur(4px);
+  z-index: 3;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.05);
+}
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
 /* Productos */
 .products .grid{
   display:grid; gap:16px;
@@ -75,6 +142,19 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   border:1px solid #ddd;
   border-radius:16px; padding:18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* --- 🏷️ ESTILOS PARA LAS ETIQUETAS/LOGOS DE SALSAS --- */
+.salsa-logo {
+  display: block;
+  max-height: 110px;    /* Ajuste ideal para etiquetas circulares */
+  width: auto;
+  margin: 0 auto 16px;  /* Centrado automático y espacio inferior */
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+.salsa-card:hover .salsa-logo {
+  transform: scale(1.04); /* Pequeña reacción visual al hover */
 }
 
 /* -------- Efecto de IMAGEN al hover -------- */
@@ -167,6 +247,13 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   .logo{height:70px}
 }
 
+@media (max-width: 600px) {
+  .carousel-caption { font-size: 0.9rem; bottom: 10px; left: 10px; padding: 6px 12px; }
+  .carousel-btn { width: 35px; height: 35px; font-size: 0.9rem; }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+}
+
 /* Contacto */
 .contact-card {
   text-align: center;
@@ -226,32 +313,29 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
 
 /* Accesibilidad: reducir movimiento si el usuario lo pide */
 @media (prefers-reduced-motion: reduce) {
-  .salsa-card__body, .salsa-card::after, .salsa-card::before, .salsa-card { transition: none; }
+  .salsa-card__body, .salsa-card::after, .salsa-card::before, .salsa-card, .carousel-track { transition: none; }
 }
+
 .distribuye {
   padding: 80px 20px;
   background: #f4f1e8;
   text-align: center;
 }
-
 .distribuye h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: #1f3c2e;
 }
-
 .distribuye .subtitle {
   margin-bottom: 50px;
   font-size: 1.1rem;
   color: #444;
 }
-
 .distribuye-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
 }
-
 .card-distribuye {
   background: white;
   padding: 40px 30px;
@@ -260,25 +344,20 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   text-align: left;
   transition: transform 0.3s ease;
 }
-
 .card-distribuye:hover {
   transform: translateY(-5px);
 }
-
 .card-distribuye h3 {
   margin-bottom: 15px;
   color: #1f3c2e;
 }
-
 .card-distribuye ul {
   padding-left: 20px;
   margin-bottom: 25px;
 }
-
 .card-distribuye li {
   margin-bottom: 10px;
 }
-
 .btn-distribuye {
   display: inline-block;
   background: #1f3c2e;
@@ -289,7 +368,6 @@ h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
   font-weight: bold;
   transition: background 0.3s ease;
 }
-
 .btn-distribuye:hover {
   background: #2e5c45;
 }
