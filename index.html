@@ -8,8 +8,31 @@
 
   <meta property="og:title" content="Chilaco – Salsas en bolsa martajadas" />
   <meta property="og:description" content="Salsas rojas y verdes, auténticas, hechas a mano en Jalisco." />
+  <meta property="og:image" content="assets/android-icon-192x192.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png?v=1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-icon-192x192.png?v=1">
+  <link rel="shortcut icon" href="assets/favicon.ico?v=1" type="image/x-icon">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png?v=1">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png?v=1">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png?v=1">
+  <link class="apple-touch-icon" sizes="76x76" href="assets/apple-icon-76x76.png?v=1">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-icon-114x114.png?v=1">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-icon-120x120.png?v=1">
+  <link class="apple-touch-icon" sizes="144x144" href="assets/apple-icon-144x144.png?v=1">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-icon-152x152.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-icon-180x180.png?v=1">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="manifest" href="assets/manifest.json">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -20,7 +43,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#inicio">
-        Chilaco
+        <img src="assets/chilaGOD.png" alt="Chilaco" class="logo" />
       </a>
       <nav>
         <a href="#productos">Productos</a>
@@ -47,16 +70,30 @@
       <h2>El proceso Chilaco</h2>
       <div class="carousel-wrapper">
         <div class="carousel-track">
+          
           <div class="carousel-item">
+            <video autoplay loop muted playsinline>
+              <source src="assets/video-roja.mp4" type="video/mp4">
+            </video>
             <div class="carousel-caption">Chilaco Roja Clásica</div>
           </div>
+
           <div class="carousel-item">
+            <video autoplay loop muted playsinline>
+              <source src="assets/video-jalapeno.mp4" type="video/mp4">
+            </video>
             <div class="carousel-caption">Chilaco Jalapeño</div>
           </div>
+
           <div class="carousel-item">
+            <video autoplay loop muted playsinline>
+              <source src="assets/video-jitomate.mp4" type="video/mp4">
+            </video>
             <div class="carousel-caption">Chilaco Jitomate</div>
           </div>
+
         </div>
+        
         <button class="carousel-btn prev" id="btn-prev" aria-label="Anterior">&#10094;</button>
         <button class="carousel-btn next" id="btn-next" aria-label="Siguiente">&#10095;</button>
       </div>
@@ -65,22 +102,22 @@
     <section id="productos" class="container products">
       <h2>Nuestras salsas</h2>
       <div class="grid">
-        <article class="card salsa-card card--roja" tabindex="0">
+        <article class="card salsa-card card--roja" tabindex="0" aria-label="Chilaco Roja Clásica, imagen al pasar el cursor">
           <div class="salsa-card__body">
             <h3>Chilaco Roja Clásica</h3>
-            <p>La receta de la casa. El balance perfecto entre el sabor tradicional y ese picor que te hace querer un taquito más.</p>
+            <p>La receta de la casa. El balance perfecto entre el sabor tradicional y ese picor que te hace querer un taquito más. El acompañamiento ideal para el día a día en cualquier mesa.</p>
             <ul>
               <li>Presentación: bolsa</li>
-              <li>Picor: medio 🌶️</li>
+              <li>Picor: medio 180°C</li>
               <li>Rinde: 6–8 porciones</li>
             </ul>
           </div>
         </article>
 
-        <article class="card salsa-card card--verde" tabindex="0">
+        <article class="card salsa-card card--verde" tabindex="0" aria-label="Chilaco Jalapeño, imagen al pasar el cursor">
           <div class="salsa-card__body">
             <h3>Chilaco Jalapeño</h3>
-            <p>Fresca, ligera y con un toque sutil. Destaca por el sabor característico del jalapeño bien sazonado.</p>
+            <p>Fresca, ligera y con un toque sutil. Destaca por el sabor característico del jalapeño bien sazonado, ofreciendo una experiencia suave y amigable para acompañar tus comidas.</p>
             <ul>
               <li>Presentación: bolsa</li>
               <li>Picor: bajo 🌶️</li>
@@ -89,10 +126,10 @@
           </div>
         </article>
 
-        <article class="card salsa-card card--jitomate" tabindex="0">
+        <article class="card salsa-card card--jitomate" tabindex="0" aria-label="Chilaco Jitomate, imagen al pasar el cursor">
           <div class="salsa-card__body">
             <h3>Chilaco Jitomate</h3>
-            <p>Base robusta de jitomate maduro combinada con una selección de chiles para un sabor intenso y adictivo.</p>
+            <p>No te dejes engañar por su nombre; esta salsa tiene carácter. Una base robusta de jitomate maduro combinada con una selección de chiles que elevan la temperatura para darte un golpe de sabor intenso y adictivo.</p>
             <ul>
               <li>Presentación: bolsa</li>
               <li>Picor: medio-alto 🌶️🌶️🌶️</li>
@@ -105,39 +142,88 @@
 
     <section id="historia" class="container story">
       <h2>Nuestra historia</h2>
-      <p>Chilaco nace inspirado en la tradición familiar y el cariño por las salsas bien hechas.</p>
+      <p>Chilaco nace inspirado en la tradición familiar y el cariño por las salsas bien hechas. Rescatamos técnicas caseras para mantener el sabor auténtico en un formato práctico.</p>
     </section>
 
     <section id="distribuye" class="distribuye">
       <div class="container">
         <h2>Distribuye Chilaco</h2>
+        <p class="subtitle">
+          Genera dinero de forma fácil vendiendo Chilaco.
+        </p>
+
         <div class="distribuye-grid">
           <div class="card-distribuye">
             <h3>🏪 Para tu negocio</h3>
+            <p>
+              Ideal para tortillerías, carnicerías, minisupers y tiendas.
+            </p>
+
             <ul>
-              <li>Precio sugerido: $20</li>
-              <li>Precio negocio: $15</li>
+              <li><strong>Precio al público sugerido:</strong> $20</li>
+              <li><strong>Precio para negocio:</strong> $15 (precio fijo)</li>
+              <li><strong>Ganancia estimada:</strong> $5 por salsa</li>
+              <li><strong>Surtido:</strong> según lo que necesites</li>
+              <li><strong>Pedido mínimo:</strong> No hay</li>
             </ul>
-            <a class="btn-distribuye" href="https://wa.me/523334862418" target="_blank" rel="noopener">Quiero vender</a>
+
+            <a class="btn-distribuye"
+               href="https://wa.me/523334862418?text=Hola%20quiero%20vender%20Chilaco%20en%20mi%20negocio"
+               target="_blank" rel="noopener">
+              Quiero vender Chilaco
+            </a>
           </div>
+
           <div class="card-distribuye">
             <h3>🤝 Venta independiente</h3>
+            <p>
+              Genera ingresos extra vendiendo Chilaco en tu colonia, escuela o trabajo.
+            </p>
+
             <ul>
-              <li>Compra desde $13</li>
-              <li>Venta en $15</li>
+              <li>Compra desde $13 (o $12 si se escala)</li>
+              <li>Vende en $15</li>
+              <li>Ganancia de $2 a $3 por salsa</li>
+              <li>Sin inversión fuerte</li>
+              <li>Sin pedido mínimo</li>
             </ul>
-            <a class="btn-distribuye" href="https://wa.me/523334862418" target="_blank" rel="noopener">Quiero vender</a>
+
+            <a class="btn-distribuye"
+               href="https://wa.me/523334862418?text=Hola%20quiero%20vender%20Chilaco"
+               target="_blank" rel="noopener">
+              Quiero vender Chilaco
+            </a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container contact">
+      <h2>Contacto</h2>
+      <p>¿Quieres vender Chilaco en tu tienda o hacer un pedido grande?</p>
+      <div class="card contact-card">
+        <p><strong>Teléfono:</strong>
+          <a href="tel:+523334862418">33 3486 2418</a>
+        </p>
+        <p><strong>WhatsApp:</strong>
+          <a class="btn" href="https://wa.me/523334862418" target="_blank" rel="noopener">
+            Escríbenos por WhatsApp
+          </a>
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container" style="text-align:center;">
+      <img src="assets/chilaGOD.png" alt="Chilaco" class="logo" style="height:60px; margin-bottom:10px;" />
       <p>© <span id="year"></span> Chilaco — Hecho en Jalisco.</p>
     </div>
   </footer>
+
+  <a href="https://wa.me/523334862418" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+    <img src="assets/whatsapp.svg" width="42" height="42" alt="WhatsApp">
+  </a>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -145,6 +231,7 @@
       const items = document.querySelectorAll('.carousel-item');
       const nextBtn = document.getElementById('btn-next');
       const prevBtn = document.getElementById('btn-prev');
+      
       let currentIndex = 0;
 
       function updateCarousel() {
@@ -152,18 +239,30 @@
       }
 
       nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+        if (currentIndex < items.length - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
         updateCarousel();
       });
 
       prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = items.length - 1;
+        }
         updateCarousel();
       });
-      
-      const y = document.getElementById('year');
-      if(y) y.textContent = new Date().getFullYear();
     });
+
+    document.addEventListener('touchstart', function (e) {
+      const card = e.target.closest('.salsa-card');
+      if (card) card.classList.toggle('is-preview');
+    }, { passive: true });
+
+    (function(){ const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear(); })();
   </script>
 </body>
 </html>
