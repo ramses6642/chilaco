@@ -1,175 +1,665 @@
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+<!DOCTYPE html>
+<html lang="es">
 
-    const track = document.querySelector('.carousel-track');
-    const items = document.querySelectorAll('.carousel-item');
-    const nextBtn = document.getElementById('btn-next');
-    const prevBtn = document.getElementById('btn-prev');
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    let currentIndex = 0;
-    let autoPlay;
+  <title>Chilaco – Salsas en bolsa martajadas</title>
 
-    // =========================
-    // CREAR DOTS AUTOMÁTICOS
-    // =========================
+  <meta
+    name="description"
+    content="Salsas Chilaco: Chilaco Roja Clásica, Chilaco Jalapeño y Chilaco Jitomate. Hechas a mano, martajadas y listas para llevar en bolsa."
+  >
 
-    const dotsContainer = document.createElement('div');
-    dotsContainer.className = 'carousel-dots';
+  <meta property="og:title" content="Chilaco – Salsas en bolsa martajadas">
+  <meta property="og:description" content="Salsas rojas y verdes, auténticas, hechas a mano en Jalisco.">
+  <meta property="og:image" content="assets/android-icon-192x192.png">
+  <meta property="og:type" content="website">
 
-    items.forEach((_, index) => {
+  <meta name="twitter:card" content="summary_large_image">
 
-      const dot = document.createElement('button');
+  <!-- ICONOS -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png?v=1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-icon-192x192.png?v=1">
 
-      dot.className = 'carousel-dot';
+  <link rel="shortcut icon" href="assets/favicon.ico?v=1" type="image/x-icon">
 
-      if (index === 0) {
-        dot.classList.add('active');
+  <!-- APPLE -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png?v=1">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png?v=1">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png?v=1">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-icon-76x76.png?v=1">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-icon-114x114.png?v=1">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-icon-120x120.png?v=1">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-icon-144x144.png?v=1">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-icon-152x152.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-icon-180x180.png?v=1">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
+
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="manifest" href="assets/manifest.json">
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="container nav">
+
+      <a class="brand" href="#inicio">
+
+        <img
+          src="assets/chilaGOD.png"
+          alt="Chilaco"
+          class="logo"
+        >
+
+      </a>
+
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#historia">Historia</a>
+        <a href="#distribuye">Distribuye</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+  <main id="inicio">
+
+    <!-- HERO -->
+    <section class="hero container">
+
+      <div class="hero-text">
+
+        <h1>Salsa auténtica, lista para llevar</h1>
+
+        <p>
+          Martajada con cariño.
+          Tres sabores que saben a casa:
+          Chilaco Roja Clásica,
+          Chilaco Jalapeño y
+          Chilaco Jitomate.
+        </p>
+
+        <div class="cta">
+
+          <a class="btn" href="#productos">
+            Ver productos
+          </a>
+
+          <a class="btn-outline" href="#distribuye">
+            Quiero distribuir
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CARRUSEL -->
+    <section class="container video-carousel-section">
+
+      <h2>El proceso Chilaco</h2>
+
+      <div class="carousel-wrapper">
+
+        <div class="carousel-track">
+
+          <!-- VIDEO 1 -->
+          <div class="carousel-item">
+
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+
+              <source
+                src="assets/video-roja.mp4"
+                type="video/mp4"
+              >
+
+            </video>
+
+          </div>
+
+          <!-- VIDEO 2 -->
+          <div class="carousel-item">
+
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+
+              <source
+                src="assets/video-jalapeno.mp4"
+                type="video/mp4"
+              >
+
+            </video>
+
+          </div>
+
+          <!-- VIDEO 3 -->
+          <div class="carousel-item">
+
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+
+              <source
+                src="assets/video-jitomate.mp4"
+                type="video/mp4"
+              >
+
+            </video>
+
+          </div>
+
+        </div>
+
+        <!-- BOTONES -->
+        <button
+          class="carousel-btn prev"
+          id="btn-prev"
+          aria-label="Anterior"
+        >
+          &#10094;
+        </button>
+
+        <button
+          class="carousel-btn next"
+          id="btn-next"
+          aria-label="Siguiente"
+        >
+          &#10095;
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="container products">
+
+      <h2>Nuestras salsas</h2>
+
+      <div class="grid">
+
+        <!-- ROJA -->
+        <article
+          class="card salsa-card card--roja"
+          tabindex="0"
+        >
+
+          <div class="salsa-card__body">
+
+            <h3>Chilaco Roja Clásica</h3>
+
+            <p>
+              La receta de la casa.
+              El balance perfecto entre
+              sabor tradicional y ese picor
+              que te hace querer otro taco.
+            </p>
+
+            <ul>
+              <li>Presentación: bolsa</li>
+              <li>Picor: medio 🌶️</li>
+              <li>Rinde: 6–8 porciones</li>
+            </ul>
+
+          </div>
+
+        </article>
+
+        <!-- VERDE -->
+        <article
+          class="card salsa-card card--verde"
+          tabindex="0"
+        >
+
+          <div class="salsa-card__body">
+
+            <h3>Chilaco Jalapeño</h3>
+
+            <p>
+              Fresca, ligera y con el sabor
+              característico del jalapeño
+              bien sazonado.
+            </p>
+
+            <ul>
+              <li>Presentación: bolsa</li>
+              <li>Picor: bajo 🌶️</li>
+              <li>Rinde: 6–8 porciones</li>
+            </ul>
+
+          </div>
+
+        </article>
+
+        <!-- JITOMATE -->
+        <article
+          class="card salsa-card card--jitomate"
+          tabindex="0"
+        >
+
+          <div class="salsa-card__body">
+
+            <h3>Chilaco Jitomate</h3>
+
+            <p>
+              Una salsa intensa y robusta,
+              con jitomate maduro y un toque
+              de chile que deja huella.
+            </p>
+
+            <ul>
+              <li>Presentación: bolsa</li>
+              <li>Picor: medio-alto 🌶️🌶️🌶️</li>
+              <li>Rinde: 6–8 porciones</li>
+            </ul>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- HISTORIA -->
+    <section id="historia" class="container story">
+
+      <h2>Nuestra historia</h2>
+
+      <p>
+        Chilaco nace inspirado en la tradición
+        familiar y el cariño por las salsas
+        bien hechas.
+      </p>
+
+    </section>
+
+    <!-- DISTRIBUYE -->
+    <section id="distribuye" class="distribuye">
+
+      <div class="container">
+
+        <h2>Distribuye Chilaco</h2>
+
+        <p class="subtitle">
+          Genera dinero de forma fácil vendiendo Chilaco.
+        </p>
+
+        <div class="distribuye-grid">
+
+          <!-- NEGOCIOS -->
+          <div class="card-distribuye">
+
+            <h3>🏪 Para tu negocio</h3>
+
+            <p>
+              Ideal para minisupers,
+              carnicerías, tortillerías y tiendas.
+            </p>
+
+            <ul>
+              <li><strong>Público:</strong> $20</li>
+              <li><strong>Negocio:</strong> $15</li>
+              <li><strong>Ganancia:</strong> $5</li>
+            </ul>
+
+            <a
+              class="btn-distribuye"
+              href="https://wa.me/523334862418?text=Hola%20quiero%20vender%20Chilaco%20en%20mi%20negocio"
+              target="_blank"
+              rel="noopener"
+            >
+              Quiero vender Chilaco
+            </a>
+
+          </div>
+
+          <!-- INDEPENDIENTE -->
+          <div class="card-distribuye">
+
+            <h3>🤝 Venta independiente</h3>
+
+            <p>
+              Genera ingresos extra vendiendo
+              Chilaco donde quieras.
+            </p>
+
+            <ul>
+              <li>Compra desde $13</li>
+              <li>Vende en $15</li>
+              <li>Ganancia de $2 a $3</li>
+            </ul>
+
+            <a
+              class="btn-distribuye"
+              href="https://wa.me/523334862418?text=Hola%20quiero%20vender%20Chilaco"
+              target="_blank"
+              rel="noopener"
+            >
+              Quiero vender Chilaco
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="container contact">
+
+      <h2>Contacto</h2>
+
+      <p>
+        ¿Quieres vender Chilaco
+        o hacer pedidos grandes?
+      </p>
+
+      <div class="card contact-card">
+
+        <p>
+          <strong>Teléfono:</strong>
+
+          <a href="tel:+523334862418">
+            33 3486 2418
+          </a>
+        </p>
+
+        <p>
+
+          <strong>WhatsApp:</strong>
+
+        </p>
+
+        <a
+          class="btn"
+          href="https://wa.me/523334862418"
+          target="_blank"
+          rel="noopener"
+        >
+          Escríbenos por WhatsApp
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="container" style="text-align:center;">
+
+      <img
+        src="assets/chilaGOD.png"
+        alt="Chilaco"
+        class="logo"
+        style="height:60px;margin-bottom:10px;"
+      >
+
+      <p>
+        © <span id="year"></span>
+        Chilaco — Hecho en Jalisco.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a
+    href="https://wa.me/523334862418"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Abrir WhatsApp"
+  >
+
+    <img
+      src="assets/whatsapp.svg"
+      width="42"
+      height="42"
+      alt="WhatsApp"
+    >
+
+  </a>
+
+  <!-- SCRIPT -->
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const track = document.querySelector('.carousel-track');
+
+      const items =
+        document.querySelectorAll('.carousel-item');
+
+      const nextBtn =
+        document.getElementById('btn-next');
+
+      const prevBtn =
+        document.getElementById('btn-prev');
+
+      let currentIndex = 0;
+
+      let autoPlay;
+
+      // DOTS
+      const dotsContainer =
+        document.createElement('div');
+
+      dotsContainer.className = 'carousel-dots';
+
+      items.forEach((_, index) => {
+
+        const dot = document.createElement('button');
+
+        dot.className = 'carousel-dot';
+
+        if(index === 0){
+          dot.classList.add('active');
+        }
+
+        dot.addEventListener('click', () => {
+
+          currentIndex = index;
+
+          updateCarousel();
+
+          restartAutoplay();
+
+        });
+
+        dotsContainer.appendChild(dot);
+
+      });
+
+      document
+        .querySelector('.carousel-wrapper')
+        .appendChild(dotsContainer);
+
+      const dots =
+        document.querySelectorAll('.carousel-dot');
+
+      // UPDATE
+      function updateCarousel(){
+
+        track.style.transform =
+          `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+
+        dots[currentIndex].classList.add('active');
+
       }
 
-      dot.addEventListener('click', () => {
-        currentIndex = index;
+      // NEXT
+      function nextSlide(){
+
+        if(currentIndex < items.length - 1){
+          currentIndex++;
+        }else{
+          currentIndex = 0;
+        }
+
         updateCarousel();
+
+      }
+
+      // PREV
+      function prevSlide(){
+
+        if(currentIndex > 0){
+          currentIndex--;
+        }else{
+          currentIndex = items.length - 1;
+        }
+
+        updateCarousel();
+
+      }
+
+      // BOTONES
+      nextBtn.addEventListener('click', () => {
+
+        nextSlide();
+
         restartAutoplay();
+
       });
 
-      dotsContainer.appendChild(dot);
-    });
+      prevBtn.addEventListener('click', () => {
 
-    document
-      .querySelector('.carousel-wrapper')
-      .appendChild(dotsContainer);
-
-    const dots = document.querySelectorAll('.carousel-dot');
-
-    // =========================
-    // ACTUALIZAR CARRUSEL
-    // =========================
-
-    function updateCarousel() {
-
-      track.style.transform =
-        `translateX(-${currentIndex * 100}%)`;
-
-      dots.forEach(dot => {
-        dot.classList.remove('active');
-      });
-
-      dots[currentIndex].classList.add('active');
-    }
-
-    // =========================
-    // SIGUIENTE
-    // =========================
-
-    function nextSlide() {
-
-      if (currentIndex < items.length - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
-
-      updateCarousel();
-    }
-
-    // =========================
-    // ANTERIOR
-    // =========================
-
-    function prevSlide() {
-
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = items.length - 1;
-      }
-
-      updateCarousel();
-    }
-
-    // =========================
-    // BOTONES
-    // =========================
-
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      restartAutoplay();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      restartAutoplay();
-    });
-
-    // =========================
-    // AUTOPLAY
-    // =========================
-
-    function startAutoplay() {
-      autoPlay = setInterval(() => {
-        nextSlide();
-      }, 5000);
-    }
-
-    function restartAutoplay() {
-      clearInterval(autoPlay);
-      startAutoplay();
-    }
-
-    startAutoplay();
-
-    // =========================
-    // SWIPE EN CELULAR
-    // =========================
-
-    let startX = 0;
-
-    track.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    track.addEventListener('touchend', (e) => {
-
-      let endX = e.changedTouches[0].clientX;
-
-      let difference = startX - endX;
-
-      // Swipe izquierda
-      if (difference > 50) {
-        nextSlide();
-      }
-
-      // Swipe derecha
-      if (difference < -50) {
         prevSlide();
+
+        restartAutoplay();
+
+      });
+
+      // AUTOPLAY
+      function startAutoplay(){
+
+        autoPlay = setInterval(() => {
+
+          nextSlide();
+
+        }, 5000);
+
       }
 
-      restartAutoplay();
+      function restartAutoplay(){
+
+        clearInterval(autoPlay);
+
+        startAutoplay();
+
+      }
+
+      startAutoplay();
+
+      // SWIPE
+      let startX = 0;
+
+      track.addEventListener('touchstart', (e) => {
+
+        startX = e.touches[0].clientX;
+
+      });
+
+      track.addEventListener('touchend', (e) => {
+
+        let endX =
+          e.changedTouches[0].clientX;
+
+        let difference = startX - endX;
+
+        if(difference > 50){
+
+          nextSlide();
+
+        }
+
+        if(difference < -50){
+
+          prevSlide();
+
+        }
+
+        restartAutoplay();
+
+      });
+
+      // TARJETAS
+      document.addEventListener('touchstart', function(e){
+
+        const card = e.target.closest('.salsa-card');
+
+        if(card){
+
+          card.classList.toggle('is-preview');
+
+        }
+
+      }, { passive:true });
+
+      // FOOTER YEAR
+      const year = document.getElementById('year');
+
+      if(year){
+
+        year.textContent =
+          new Date().getFullYear();
+
+      }
+
     });
 
-    // =========================
-    // PREVIEW EN TARJETAS
-    // =========================
+  </script>
 
-    document.addEventListener('touchstart', function (e) {
-
-      const card = e.target.closest('.salsa-card');
-
-      if (card) {
-        card.classList.toggle('is-preview');
-      }
-
-    }, { passive: true });
-
-    // =========================
-    // AÑO AUTOMÁTICO FOOTER
-    // =========================
-
-    const year = document.getElementById('year');
-
-    if (year) {
-      year.textContent = new Date().getFullYear();
-    }
-
-  });
-</script>
+</body>
+</html>
