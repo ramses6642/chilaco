@@ -1,373 +1,51 @@
-:root{
-  --bg: #f5f0e6; /* crema */
-  --card: #ffffff; /* tarjetas blancas */
-  --text: #1a1a1a; /* texto principal */
-  --muted: #444;   /* texto secundario */
-  --brand: #1a1a1a; /* acento */
-  --ring: rgba(0,0,0,0.2); /* foco */
-}
+/* ========================= */
+/* DOTS DEL CARRUSEL */
+/* ========================= */
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* Contenedor general */
-.container{max-width:1100px;margin:0 auto;padding:24px}
-
-/* Header y navegación */
-.site-header{
-  position: sticky; top:0; z-index:10;
-  background: var(--bg);
-  border-bottom: 1px solid #ddd;
-}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);font-weight:800;letter-spacing:.5px}
-
-/* LOGO MULTIMARCA EN HEADER */
-.logo{
-  height:90px;
-  width:auto;
-  display:block;
-  background:#fff;
-  padding:6px;
-  border-radius:12px;
-  border:1px solid #e6e1d8;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
-}
-
-/* Menú */
-.nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500}
-.nav a:hover{color:var(--text)}
-
-/* Hero */
-.hero{display:grid;grid-template-columns:1.1fr;align-items:center;min-height:58vh;text-align:center}
-.hero-text h1{font-size:clamp(2rem, 3.5vw, 3rem);line-height:1.15;margin:10px 0 6px}
-.hero-text p{max-width:650px;color:var(--muted);margin:6px auto 18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-
-.btn,.btn-outline{
-  display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;
-  border:1px solid transparent; font-weight:600; cursor:pointer;
-}
-.btn{background:var(--brand);color:white;box-shadow:0 0 0 0 var(--ring)}
-.btn:hover{transform:translateY(-1px)}
-.btn:focus{outline:none; box-shadow:0 0 0 6px var(--ring)}
-.btn-outline{border-color:#aaa;color:var(--text);background:#fdfdfd}
-.btn-outline:hover{border-color:#555}
-
-/* Títulos */
-h2{font-size:clamp(1.5rem, 2.5vw, 2rem);margin:24px 0 8px;text-align:center}
-
-/* --- 🎬 ESTILOS DEL CARRUSEL DE VIDEOS ANTOJABLES --- */
-.video-carousel-section {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-.carousel-wrapper {
-  position: relative;
-  max-width: 850px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  width: 100%;
-}
-.carousel-item {
-  min-width: 100%;
-  position: relative;
-  box-sizing: border-box;
-}
-.carousel-item video {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-.carousel-caption {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  backdrop-filter: blur(4px);
-  z-index: 3;
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-.carousel-btn:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-50%) scale(1.05);
-}
-.carousel-btn.prev { left: 15px; }
-.carousel-btn.next { right: 15px; }
-
-/* Productos */
-.products .grid{
-  display:grid; gap:16px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* Tarjeta base */
-.card{
-  background:var(--card);
-  border:1px solid #ddd;
-  border-radius:16px; padding:18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* --- 🏷️ ESTILOS PARA LAS ETIQUETAS/LOGOS DE SALSAS --- */
-.salsa-logo {
-  display: block;
-  max-height: 110px;    /* Ajuste ideal para etiquetas circulares */
-  width: auto;
-  margin: 0 auto 16px;  /* Centrado automático y espacio inferior */
-  object-fit: contain;
-  transition: transform .25s ease;
-}
-.salsa-card:hover .salsa-logo {
-  transform: scale(1.04); /* Pequeña reacción visual al hover */
-}
-
-/* -------- Efecto de IMAGEN al hover -------- */
-.salsa-card{
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;          /* para que ::after/::before respeten el borde */
-  min-height: 260px;           /* da altura para apreciar la foto */
-  cursor: pointer;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-
-/* Estado normal: texto oscuro y sin sombra para máxima legibilidad */
-.salsa-card__body{
-  position: relative;
-  z-index: 2;                  /* arriba del ::after y ::before */
-  color: var(--text);          /* <- cambio clave: oscuro por defecto */
-  text-shadow: none;           /* sin sombra en estado normal */
-  transition: color .25s ease, text-shadow .25s ease, opacity .3s ease, transform .3s ease;
-}
-
-/* Capa con la imagen (invisible por defecto) */
-.salsa-card::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--card-image);
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transform: scale(1.04);
-  transition: opacity .35s ease, transform .4s ease;
-  z-index: 0;
-}
-
-/* Capa de oscurecimiento para contraste del texto sobre la foto */
-.salsa-card::before{
-  content:"";
+.carousel-dots{
   position:absolute;
-  inset:0;
-  background: rgba(0,0,0,.45);  /* oscurece la foto en hover */
-  opacity:0;                    /* invisible en estado normal */
-  transition: opacity .35s ease;
-  z-index:1;                    /* entre la foto y el texto */
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:10;
 }
 
-/* Hover/Focus/Tap -> muestra la imagen y el overlay, y pone el texto en blanco */
-.salsa-card:hover::after,
-.salsa-card:focus-within::after,
-.salsa-card.is-preview::after{
-  opacity: 1;
-  transform: scale(1);
-}
-.salsa-card:hover::before,
-.salsa-card:focus-within::before,
-.salsa-card.is-preview::before{
-  opacity: 1;
-}
-.salsa-card:hover .salsa-card__body,
-.salsa-card:focus-within .salsa-card__body,
-.salsa-card.is-preview .salsa-card__body{
-  color:#fff;                             /* texto blanco solo en interacción */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* mejora legibilidad */
-}
-
-/* (Opcional) una ligera “subida” y sombra al pasar */
-.salsa-card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.12);
-}
-
-/* Rutas de imagen por tipo de salsa */
-.card--roja    { --card-image: url('assets/salsaroja.png'); }
-.card--verde   { --card-image: url('assets/salsaverde.png'); }
-.card--jitomate{ --card-image: url('assets/salsajitomate.png'); }
-
-/* Lista dentro de tarjetas */
-.card ul{margin:0 0 0 18px; color:inherit} /* usa mismo color para que sea legible */
-
-/* Historia */
-.story p{color:var(--muted);max-width:800px;margin:0 auto;text-align:center}
-
-/* Footer */
-.site-footer{border-top:1px solid #ddd;margin-top:40px;background:var(--bg)}
-.site-footer p{color:#666;text-align:center}
-.site-footer .logo{height:110px}
-
-/* Responsivo */
-@media (max-width:700px){
-  .logo{height:70px}
-}
-
-@media (max-width: 600px) {
-  .carousel-caption { font-size: 0.9rem; bottom: 10px; left: 10px; padding: 6px 12px; }
-  .carousel-btn { width: 35px; height: 35px; font-size: 0.9rem; }
-  .carousel-btn.prev { left: 10px; }
-  .carousel-btn.next { right: 10px; }
-}
-
-/* Contacto */
-.contact-card {
-  text-align: center;
-  padding: 24px;
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  background: var(--card);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.contact-card p {
-  margin: 12px 0;
-  font-size: 1.1rem;
-}
-.contact-card a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-}
-.contact-card a:hover {
-  color: var(--muted);
-}
-
-/* Botón WhatsApp en la tarjeta de contacto */
-.contact-card .btn{
-  background:#25D366; /* Verde WhatsApp */
-  color:#fff !important;
+.carousel-dot{
+  width:12px;
+  height:12px;
   border:none;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.contact-card .btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 16px rgba(0,0,0,0.25);
-}
-.contact-card .btn:focus{
-  outline:none;
-  box-shadow:0 0 0 6px rgba(37,211,102,0.25);
+  border-radius:50%;
+  background:rgba(255,255,255,.5);
+  cursor:pointer;
+  transition:all .25s ease;
 }
 
-/* Botón flotante de WhatsApp */
-.whatsapp-float{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  background: #25D366;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.whatsapp-float img{ width:42px; height:42px; display:block; }
-.whatsapp-float:hover{
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+.carousel-dot.active{
+  background:#fff;
+  transform:scale(1.2);
 }
 
-/* Accesibilidad: reducir movimiento si el usuario lo pide */
-@media (prefers-reduced-motion: reduce) {
-  .salsa-card__body, .salsa-card::after, .salsa-card::before, .salsa-card, .carousel-track { transition: none; }
-}
+/* ========================= */
+/* MEJORA VISUAL EN MÓVIL */
+/* ========================= */
 
-.distribuye {
-  padding: 80px 20px;
-  background: #f4f1e8;
-  text-align: center;
-}
-.distribuye h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #1f3c2e;
-}
-.distribuye .subtitle {
-  margin-bottom: 50px;
-  font-size: 1.1rem;
-  color: #444;
-}
-.distribuye-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-}
-.card-distribuye {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-.card-distribuye:hover {
-  transform: translateY(-5px);
-}
-.card-distribuye h3 {
-  margin-bottom: 15px;
-  color: #1f3c2e;
-}
-.card-distribuye ul {
-  padding-left: 20px;
-  margin-bottom: 25px;
-}
-.card-distribuye li {
-  margin-bottom: 10px;
-}
-.btn-distribuye {
-  display: inline-block;
-  background: #1f3c2e;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-.btn-distribuye:hover {
-  background: #2e5c45;
+@media (max-width: 700px){
+
+  .carousel-wrapper{
+    border-radius:12px;
+  }
+
+  .carousel-item video{
+    min-height:420px;
+    object-fit:cover;
+  }
+
+  .carousel-caption{
+    font-size:.95rem;
+    bottom:12px;
+    left:12px;
+  }
+
 }
